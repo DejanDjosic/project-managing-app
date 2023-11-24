@@ -70,7 +70,14 @@ function App() {
     });
   };
 
-  const handleEditProject = (editedProject) => {}
+  const handleEditProject = (editedProject) => {
+setProjectsState((prevState)=>
+{
+  let updatedProjectsArray= projectsState.projects.filter((project)=>project.id!==editedProject.id);
+  updatedProjectsArray.push(editedProject);
+  return{...prevState,projects:updatedProjectsArray}
+})
+  }
 
   
   const handleDeleteProject = () => {
